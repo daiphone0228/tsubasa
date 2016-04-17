@@ -1,0 +1,39 @@
+body {
+	background: linear-gradient(#852e19,#f0cfa0);
+}
+
+table {
+	width: 50%;
+	border-collapse: collapse;
+	border-right: 1px solid #999;
+}
+
+thead, table.total th{
+	width:25%;
+	padding: 6px;
+	text-align: left;
+	vertical-align: top;
+	color: #fff;
+	background-color: #555;
+	border-left: 5px solid #ff6633;
+	border-top: 1px solid #fff;
+}
+
+td {
+	width: 25%;
+	padding: 6px;
+	background-color: #fff;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	filter:alpha(opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+}
+
+table.food {
+	float: left;
+	}
+
+table.drink {
+
+}
