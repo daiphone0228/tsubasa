@@ -56,9 +56,9 @@
 		<?php while ($food = mysqli_fetch_assoc($foods)): ?>
 			<tr>
 				<td><?php echo htmlspecialchars($food['food_name'], ENT_QUOTES, 'UTF-8'); ?></td>
-				<td id=price>¥<?php echo htmlspecialchars($food['food_price'], ENT_QUOTES, 'UTF-8'); ?></td>
+				<td id="price">¥<?php echo htmlspecialchars($food['food_price'], ENT_QUOTES, 'UTF-8'); ?></td>
 				<td>
-					<select id=select name="num" onChange="changeSelect()">
+					<select id="select" name="num" onChange="changeSelect()">
 						<?php for($i=0; $i<=20; $i++){
 							echo "<option value=". $i .">". $i. "</option>" . "<br>";
 							}
@@ -69,11 +69,8 @@
 					<script type="text/javascript">
 						// 変数定義する
 						var price = '<?php echo $food['food_price']; ?>';
-						document.write(num);
+						// document.getElementById('price');
 						document.write(price);
-						// var sum = num * price;
-						// document.write(sum);
-						document.write("あ");
 					</script>
 				</td>
 			</tr>
