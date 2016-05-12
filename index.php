@@ -90,30 +90,34 @@
 		<?php while ($drink = mysqli_fetch_assoc($drinks)): ?>
 			<tr>
 				<td><?php echo htmlspecialchars($drink['drink_name'], ENT_QUOTES, 'UTF-8'); ?></td>
-				<td>¥<?php echo htmlspecialchars($drink['drink_price'], ENT_QUOTES, 'UTF-8'); ?></td>
+				<td id="drinkPrice">¥<?php echo htmlspecialchars($drink['drink_price'], ENT_QUOTES, 'UTF-8'); ?></td>
 				<td>
-					<select name="num" onChange="calc()">
-						<?php for($i=0; $i<=20; $i++){
-							echo "<option>". $i. "</option>" . "<br>";
-							}
-						 ?>
+					<select id="drinkNum" onchange="changeSelect()">
+						<?php for($i=0; $i<=20; $i++): ?>
+							<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+						<?php endfor; ?>
 					</select>
 				</td>
-				<td>
-					<script type="text/javascript">
-						// 変数定義する
-						var num = '<?php echo $i; ?>'
-						var price = '<?php echo $drink['drink_price']; ?>'
-
-						// numをクリックしたら、functionの中身を実行
-						var sum = num * price;
-						document.write(sum);
+				<td id="syokei">
+					<script>
+						function changeSelect() {
+							var drinkNum = document.getElementById("drinkNum").value;
+							console.log(drinkNum);
+							var drinkPrice = <?php echo $drink['drink_price']; ?>;
+							console.log(drinkPrice);
+						}
+							// document.write('¥' + drinkPrice * num);
 					</script>
 				</td>
 			</tr>
 		<?php endwhile; ?>
 		</tbody>
 	</table>
+
+	<script>
+		var drinkPrice = document.getElementById("drinkPrice");
+		console.log(drinkPrice);
+	</script>
 </body>
 </html>
 
